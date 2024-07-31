@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '../atoms/Icon';
-
-// import logo from '../../../public/images/images.png';
+import {logo_path} from '../../constants';
 
 const NavBar: React.FC = () => {
     const [darkMode, setDarkMode] = useState(false);
@@ -14,7 +13,7 @@ const NavBar: React.FC = () => {
 
     return (
         <nav>
-            <img src="../../../public/images/images.png" alt="Logo" />
+            <img src={logo_path} alt="Logo" />
             <ul>
 
                 <li><Link to="/">Movie App</Link></li>

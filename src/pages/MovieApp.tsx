@@ -7,7 +7,7 @@ const MovieApp: React.FC = () => {
     const [movies, setMovies] = useState<Movie[]>([]);
     const [page, setPage] = useState(1);
     const [totalPageNumber, setTotalPageNumber] = useState(1);
-    const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
+    // const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
 
     useEffect(() => {
         const fetchInitialMovies = async () => {
@@ -23,10 +23,8 @@ const MovieApp: React.FC = () => {
             movies={movies}
             page={page}
             totalPageNumber={totalPageNumber}
-            selectedMovie={selectedMovie}
-            setMovies={setMovies}
             setPage={setPage}
-            setSelectedMovie={setSelectedMovie}
+            setMovies={setMovies}
         />
     );
 };

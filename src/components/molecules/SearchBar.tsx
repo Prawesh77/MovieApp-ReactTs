@@ -21,9 +21,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
             />
-            <Button onClick={handleSearchClick} className="search-button">
-                Search
-            </Button>
+            <Button onClick={handleSearchClick} className="search-button" insideTxt="hey"/>
+                {/* Search
+            </Button> */}
         </div>
     );
 };

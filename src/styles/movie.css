@@ -178,3 +178,16 @@
     margin: 5px 0;
 }
 
+
+
+@media only screen and (max-width: 1090px) {
+    .movie-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }   
+}
+
+@media only screen and (max-width: 850px) {
+    .movie-grid {
+        grid-template-columns: 1fr 1fr;
+    }   
+}

@@ -7,12 +7,17 @@ interface MovieGridProps {
     onMovieClick: (movie: Movie) => void;
 }
 
-const MovieGrid: React.FC<MovieGridProps> = ({ movies, onMovieClick }) => (
+const MovieGrid: React.FC<MovieGridProps> = ({movies, onMovieClick}) => {
+
+return(
     <div className="movie-grid">
         {movies.map((movie) => (
-            <MovieItem key={movie.id} movie={movie} onClick={() => onMovieClick(movie)} />
+                <MovieItem key={movie.id} movie={movie} onClick={() => onMovieClick(movie)} />
+            
         ))}
     </div>
-);
+)
+
+};
 
 export default MovieGrid;
