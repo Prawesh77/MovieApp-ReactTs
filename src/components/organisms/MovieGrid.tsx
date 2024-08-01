@@ -1,17 +1,22 @@
 import React from 'react';
 import MovieItem from '../molecules/MovieItem';
 import { Movie } from '../../types/movie';
+import useMovie from '../../customHooks/hooks/MovieHooks';
 
 interface MovieGridProps {
-    movies: Movie[];
     onMovieClick: (movie: Movie) => void;
 }
 
-const MovieGrid: React.FC<MovieGridProps> = ({movies, onMovieClick}) => {
+const MovieGrid: React.FC<MovieGridProps> = ({onMovieClick}) => {
 
+    const movieFromContext = useMovie();
+    if(movieFromContext=== undefined){
+        return;
+    }
+    console.log(movieFromContext.movies);
 return(
     <div className="movie-grid">
-        {movies.map((movie) => (
+        {movieFromContext.movies.map((movie) => (
                 <MovieItem key={movie.id} movie={movie} onClick={() => onMovieClick(movie)} />
             
         ))}

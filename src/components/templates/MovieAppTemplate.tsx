@@ -1,58 +1,65 @@
-import React, {useState} from 'react';
+import React from 'react';
 import SearchBar from '../molecules/SearchBar';
 import MovieGrid from '../organisms/MovieGrid';
 import Pagination from '../molecules/Pagination';
 import { Movie } from '../../types/movie';
 import { searchMovies } from '../../utils/api';
 import MovieDetail from '../molecules/MovieDetail';
+import useMovie from '../../customHooks/hooks/MovieHooks';
+import usePage from '../../customHooks/hooks/PageHook';
 
-interface MovieAppTemplateProps {
-    movies: Movie[];
-    page: number;
-    totalPageNumber: number;
-    setMovies: React.Dispatch<React.SetStateAction<Movie[]>>;
-    setPage: React.Dispatch<React.SetStateAction<number>>;
-}
+// interface MovieAppTemplateProps {
+//     page: number;
+//     totalPageNumber: number;
+//     setMovies: React.Dispatch<React.SetStateAction<Movie[]>>;
+//     setPage: React.Dispatch<React.SetStateAction<number>>;
+// }
 
-const MovieAppTemplate: React.FC<MovieAppTemplateProps> = ({
-    movies,
-    page,
-    totalPageNumber,
-    setMovies,
-    setPage,
-}) => {
-    const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
+const MovieAppTemplate: React.FC= () => {
+    const moviesFromContext = useMovie();
+    const pageFromContext = usePage();
+
+    if(moviesFromContext===undefined){
+        return
+    }
     
     const handleSearch = async (query: string) => {
         const data = await searchMovies(query);
-        setMovies(data.results);
+        moviesFromContext?.setMovies(data.results);
     };
 
     const handlePageChange = (page: number) => {
-        setPage(page);
+        console.log("clicked");
+        pageFromContext.setPage && pageFromContext.setPage(page);
+        console.log(pageFromContext.page), "after clicked";
     };
 
     const handleMovieClick = (movie: Movie) => {
         console.log(movie);
-        setSelectedMovie(movie);
+        moviesFromContext.setSelectedMovie && moviesFromContext?.setSelectedMovie(movie);
     };
 
     const handleBackToDiscover = () => {
-        setSelectedMovie(null);
+        moviesFromContext.setSelectedMovie && moviesFromContext?.setSelectedMovie(undefined);
     };
 
     return (
         <div className="movie">
             <SearchBar onSearch={handleSearch} />
-            {selectedMovie?
-                    <MovieDetail movie={selectedMovie} onBack={handleBackToDiscover}/>
+            {moviesFromContext.selectedMovie?
+                    <MovieDetail onBack={handleBackToDiscover}/>
                 :(
                     <>
-                        <Pagination page={page} totalPageNumber={totalPageNumber} onPageChange={handlePageChange} />
-                        <MovieGrid movies={movies} onMovieClick={handleMovieClick}/>
+                        <Pagination  onPageChange={handlePageChange} />
+                        <MovieGrid  onMovieClick={handleMovieClick}/>
                     </>
                 )      
             }          
+            {/* <Pagination  onPageChange={handlePageChange} />
+            <MovieDetail onBack={handleBackToDiscover}/>
+            
+            <MovieGrid  onMovieClick={handleMovieClick}/>    */}
+            
 
         </div>
     );
