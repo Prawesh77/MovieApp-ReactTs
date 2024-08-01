@@ -46,7 +46,11 @@ const MovieAppTemplate: React.FC= () => {
     return (
         <div className="movie">
             <SearchBar onSearch={handleSearch} />
-            {moviesFromContext.selectedMovie?
+            <Pagination  onPageChange={handlePageChange} />
+            <MovieDetail onBack={handleBackToDiscover}/>
+            <MovieGrid  onMovieClick={handleMovieClick}/>   
+            
+            {/* {moviesFromContext.selectedMovie?
                     <MovieDetail onBack={handleBackToDiscover}/>
                 :(
                     <>
@@ -54,12 +58,7 @@ const MovieAppTemplate: React.FC= () => {
                         <MovieGrid  onMovieClick={handleMovieClick}/>
                     </>
                 )      
-            }          
-            {/* <Pagination  onPageChange={handlePageChange} />
-            <MovieDetail onBack={handleBackToDiscover}/>
-            
-            <MovieGrid  onMovieClick={handleMovieClick}/>    */}
-            
+            }           */}
 
         </div>
     );

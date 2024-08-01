@@ -15,7 +15,6 @@ const NavBar: React.FC = () => {
         <nav>
             <img src={logo_path} alt="Logo" />
             <ul>
-
                 <li><Link to="/">Movie App</Link></li>
             </ul>
             <Icon name={darkMode ? 'bxs-toggle-right' : 'bx-toggle-left'} onClick={toggleDarkMode} />

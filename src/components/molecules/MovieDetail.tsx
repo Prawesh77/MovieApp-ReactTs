@@ -14,8 +14,8 @@ const MovieDetail: React.FC<MovieDetailProps> = ({ onBack }) => {
     }
     return(
     
-        <div className="one_one">
-            <p className="back_to_search" onClick={onBack}>Back to Discover</p>
+        <div className="one_movie_detail">
+            <p className="back_to_discover" onClick={onBack}>Back to Discover</p>
             <div className="detail_secDiv">
                 <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
                 <div className="detail_detailsDiv">

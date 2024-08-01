@@ -101,17 +101,16 @@
     background: rgba(0, 0, 0,0.8);    
     color: white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     z-index: 1000;
-    display: none;
 }
 
-.back_to_search{
+.back_to_discover{
     margin: auto;
-    text-align: end;
+    
     margin-bottom: 10px;
-    cursor: pointer;
 }
 
 .detail_secDiv{
@@ -136,11 +135,7 @@
 
 
 /* search gareko lai grid maa dekhauna */
-.back_to_explore{
-    margin: auto;
-    text-align: end;
-    margin-bottom: 10px;
-}
+
 .movie-details {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
