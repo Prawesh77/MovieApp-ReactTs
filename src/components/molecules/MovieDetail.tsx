@@ -1,5 +1,6 @@
 import React from 'react';
 import useMovie from '../../customHooks/hooks/MovieHooks';
+import Button from '../atoms/Button';
 
 interface MovieDetailProps {
     onBack: () => void;
@@ -12,6 +13,11 @@ const MovieDetail: React.FC<MovieDetailProps> = ({ onBack }) => {
     if(!movie){
         return ;
     }
+    const searchGoogle=()=>{
+        window.open(`https://www.google.com/search?q=${movie.title}`, "_blank", "noreferrer" );
+    }
+
+
     return(
     
         <div className="one_movie_detail">
@@ -23,7 +29,9 @@ const MovieDetail: React.FC<MovieDetailProps> = ({ onBack }) => {
                     <p className="detail_overview">{movie.overview}</p>
                     <p><b>Rating:</b> {movie.vote_average}</p>
                     <p><b>Release Date:</b> {movie.release_date}</p>
+                    <Button onClick={searchGoogle}  insideTxt='Search On Google' className='search-button'></Button>
                 </div>
+                
             </div>
             
         </div>

@@ -1,5 +1,6 @@
-.movie h1{
-    color: var(--primary-font-color)
+.movie h1 {
+    color: var(--primary-font-color);
+    transition: all 0.3s ease-in-out;
 }
 
 .search-bar {
@@ -16,7 +17,7 @@
     border-radius: 10px;
 }
 
-.search-bar button {
+.search-button {
     border: solid 1px rgb(197, 197, 197);
     border-radius: 10px;
     padding: 10px 20px;
@@ -34,7 +35,7 @@
 }
 
 .movie-item {
-    background-color: rgb(255, 255, 255);
+    background-color: var(--movie-grid-color);
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -46,31 +47,33 @@
     transition: all 0.3s ease-in-out;
 }
 
-.movie-item:hover{
+.movie-item:hover {
     transform: translateY(-7px);
+    box-shadow: 0px 1px 10px black;
 }
 
 .movie-item img {
-    width:100%;
+    width: 100%;
     height: 70%;
     /* object-fit: cover; */
 }
 
 .movie-item h3 {
     font-size: 18px;
+    color: var(--primary-font-color);
     margin: 20px 0 10px 0;
-    background-color: rgb(171, 245, 245);
+    background-color: var(--movie-grid-name-bg);
     /* max-width: 250px; */
+
 }
 
 .movie-item p {
     margin: 5px 0;
+    color: var(--primary-font-color);
 }
 
-
-
 /* pagination wala ko lagi */
-.pagination{
+.pagination {
     width: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -79,7 +82,7 @@
     justify-content: center;
 }
 
-.pagination button{
+.pagination button {
     padding: 5px;
     margin-left: 10px;
     border-radius: 5px;
@@ -91,14 +94,14 @@
 
 
 /*one specific movie detail */
-.one_movie_detail{
+.one_movie_detail {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     padding: 50px;
-    background: rgba(0, 0, 0,0.8);    
+    background: rgba(0, 0, 0, 0.8);
     color: white;
     display: flex;
     flex-direction: column;
@@ -107,28 +110,39 @@
     z-index: 1000;
 }
 
-.back_to_discover{
+.back_to_discover {
     /* margin: auto; */
     margin-bottom: 10px;
     cursor: pointer;
 }
 
-.detail_secDiv{
+.detail_secDiv {
     display: flex;
 }
-.detail_secDiv img{
+
+.detail_secDiv img {
     width: 30%;
     margin-right: 10px;
     border-radius: 10px;
 }
 
-.detail_detailsDiv p{
+.detail_detailsDiv{
+    margin-top: 40px;
+    margin-left: 12px;
+}
+
+.detail_detailsDiv p {
     margin-bottom: 3px;
 }
-.detail_detailsDiv h2{
+.detail_detailsDiv .search-button {
+    margin-top: 12px;
+}
+
+.detail_detailsDiv h2 {
     margin-bottom: 12px;
 }
-.detail_detailsDiv .detail_overview{
+
+.detail_detailsDiv .detail_overview {
     margin-bottom: 12px;
 }
 
@@ -142,6 +156,7 @@
     column-gap: 50px;
     row-gap: 40px;
 }
+
 .movie-grid-item {
     background-color: rgb(255, 255, 255);
     padding: 10px;
@@ -154,12 +169,13 @@
     transition: all 0.3s ease-in-out;
 }
 
-.movie-grid-item:hover{
+.movie-grid-item:hover {
+    box-shadow: 1px 1px 5px black;
     transform: translateY(-7px);
 }
 
 .movie-grid-item img {
-    width:100%;
+    width: 100%;
     height: 70%;
 }
 
@@ -178,11 +194,11 @@
 @media only screen and (max-width: 1090px) {
     .movie-grid {
         grid-template-columns: 1fr 1fr 1fr;
-    }   
+    }
 }
 
 @media only screen and (max-width: 850px) {
     .movie-grid {
         grid-template-columns: 1fr 1fr;
-    }   
+    }
 }

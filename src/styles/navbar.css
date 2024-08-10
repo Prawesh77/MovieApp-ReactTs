@@ -2,11 +2,16 @@
 :root{
     --primary-font-color: rgb(32, 32, 32);
     --primary-bg-color: rgb(241, 241, 241);
-    
+
+    --movie-grid-color: white;
+    --movie-grid-name-bg: rgb(171, 245, 245);
   }
   .dark_mode{
       --primary-font-color: rgb(245, 240, 240);
       --primary-bg-color: rgb(48, 48, 48);
+
+      --movie-grid-color: rgb(29, 29, 29);
+      --movie-grid-name-bg: rgb(64, 94, 94);
   }
   
   *{
@@ -23,6 +28,7 @@
   body{
       margin: 0 30px;
       background-color: var(--primary-bg-color);
+      transition: all 0.3s ease-in-out;
   }
   
   
