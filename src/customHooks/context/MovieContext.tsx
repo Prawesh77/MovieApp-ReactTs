@@ -5,7 +5,7 @@ export interface MovieContextType {
     movies: Movie[];
     setMovies: React.Dispatch<React.SetStateAction<Movie[]>>;
     selectedMovie: Movie | undefined;
-    setSelectedMovie: React.Dispatch<React.SetStateAction<Movie>> | undefined;
+    setSelectedMovie: React.Dispatch<React.SetStateAction<Movie | undefined>>;
 }
 const initialMovieContextType={
     movies: [],
